@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "http://api.openweathermap.org/data/2.5/weather?q=Bishkek&APPID=5dc268846e105fd14e98e96db43e0ea3&units=metric",
+          "method": "GET"
+        }
+
+        var settings2 = {
+            "async": true,
+          "crossDomain": true,
+          "url": "http://api.openweathermap.org/data/2.5/weather?q=New+York&APPID=5dc268846e105fd14e98e96db43e0ea3&units=metric",
+          "method": "GET"
+        }
+
+        var settings3 = {
+            "async": true,
+          "crossDomain": true,
+          "url": "http://api.openweathermap.org/data/2.5/weather?q=Tokyo&APPID=5dc268846e105fd14e98e96db43e0ea3&units=metric",
+          "method": "GET"
+        }
+
+        
+        
+        $.ajax(settings).done(function (response) {
+          console.log(response);
+        
+          var content = response.wind.speed;
+          $("#windSpeed").append(content);
+        
+          var currentWeather = response.weather[0].main;
+          $("#currentWeather").append(currentWeather);
+        
+        });
+
+        $.ajax(settings2).done(function (response) {
+          console.log(response);
+        
+          var content = response.wind.speed;
+          $("#windSpeed2").append(content);
+        
+          var currentWeather = response.weather[0].main;
+          $("#currentWeather2").append(currentWeather);
+        
+        });
+
+        $.ajax(settings3).done(function (response) {
+          console.log(response);
+        
+          var content = response.wind.speed;
+          $("#windSpeed3").append(content);
+        
+          var currentWeather = response.weather[0].main;
+          $("#currentWeather3").append(currentWeather);
+        
+        });
+        </script>
+    <title>Weather Checker</title>
+</head>
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="header__menu menu">
+                <a href="" class="menu__link">Home</a>
+                <a href="" class="menu__link">Bishkek</a>
+                <a href="" class="menu__link">New York</a>
+                <a href="" class="menu__link">Tokyo</a>
+            </nav>
+        </header>
+        <main class="page">
+            <div class="page__wrapper">
+                <div class="page__screen screen">
+                    <div class="screen__content">
+                        <h1 class="screen__title screen__title_bg">
+                            Weather Checker
+                        </h1>
+                    </div>
+                    <div class="screen__body">
+                        <div class="screen__image">
+                            <img src="img/bgimg.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page__screen screen">
+                    <div class="screen__content">
+                        <h1 class="screen__title screen__title_bg">
+                            Bishkek
+                            <div id="windSpeed">Wind speed: </div>
+                            <div id="currentWeather">Current weather conditions: </div>
+                        </h1>
+                    </div>
+                    <div class="screen__body">
+                        <div class="screen__image">
+                            <img src="img/bish.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page__screen screen">
+                    <div class="screen__content">
+                        <h1 class="screen__title screen__title_bg">
+                            New York
+                            <div id="windSpeed2">Wind speed: </div>
+                            <div id="currentWeather2">Current weather conditions: </div>
+                        </h1>
+                    </div>
+                    <div class="screen__body">
+                        <div class="screen__image">
+                            <img src="img/ny.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page__screen screen">
+                    <div class="screen__content">
+                        <h1 class="screen__title screen__title_bg">
+                            Tokyo
+                            <div id="windSpeed3">Wind speed: </div>
+                            <div id="currentWeather3">Current weather conditions: </div>
+                        </h1>
+                    </div>
+                    <div class="screen__body">
+                        <div class="screen__image">
+                            <img src="img/tokyo.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
